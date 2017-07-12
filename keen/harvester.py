@@ -246,9 +246,9 @@ def main():
     #kolla_commit_response = requests.get(KOLLA_COMMITS_URL).json
     #armada_commit_response = requests.get(ARMADA_COMMITS_URL)
     #deckhand_commit_response = requests.get(DECKHAND_COMMITS_URL)
-    #drydock_commit_response = requests.get(DRYDOCK_COMMITS_URL)
-    #shipyard_commit_response = requests.get(SHIPYARD_COMMITS_URL)
-    #promenade_commit_response = requests.get(PROMENADE_COMMITS_URL)
+    drydock_commit_response = requests.get(DRYDOCK_COMMITS_URL)
+    shipyard_commit_response = requests.get(SHIPYARD_COMMITS_URL)
+    promenade_commit_response = requests.get(PROMENADE_COMMITS_URL)
 
     commit_affiliations("OpenStack_Helm_Commits", helm_commit_response, contributors)
     #commit_affiliations("Kolla_Kubernetes_Commits", kolla_commit_response, contributors)
@@ -267,7 +267,6 @@ def main():
     fork_affiliations("Drydock_Forks", drydock_fork_response, contributors)
     fork_affiliations("Shipyard_Forks", shipyard_fork_response, contributors)
     fork_affiliations("Promenade_Forks", promenade_fork_response, contributors)
-
     #for helm_commit in helm_commit_response.json():
     #    keen.add_event("OpenStack_Helm_Commits", helm_commit)
 
