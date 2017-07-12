@@ -18,10 +18,7 @@ DRYDOCK_CONTRIBUTORS_URL = 'https://api.github.com/repos/att-comdev/drydock/stat
 SHIPYARD_CONTRIBUTORS_URL= 'https://api.github.com/repos/att-comdev/shipyard/stats/contributors'
 PROMENADE_CONTRIBUTORS_URL= 'https://api.github.com/repos/att-comdev/promenade/stats/contributors'
 
-# name of those who have starred the repository
 HELM_STARGAZER_URL = 'https://api.github.com/repos/openstack/openstack-helm/stargazers'
-#KOLLA_STARGAZER_URL = 'https://api.github.com/repos/openstack/kolla-kubernetes/stargazers'
-#FUELCCP_STARGAZER_URL = 'https://api.github.com/repos/openstack/fuel-ccp/stargazers'
 ARMADA_STARGAZER_URL = 'https://api.github.com/repos/att-comdev/armada/stargazers'
 DECKHAND_STARGAZER_URL = 'https://api.github.com/repos/att-comdev/deckhand/stargazers'
 DRYDOCK_STARGAZER_URL = 'https://api.github.com/repos/att-comdev/drydock/stargazers'
@@ -29,8 +26,6 @@ SHIPYARD_STARGAZER_URL= 'https://api.github.com/repos/att-comdev/shipyard/starga
 PROMENADE_STARGAZER_URL= 'https://api.github.com/repos/att-comdev/promenade/stargazers'
 
 HELM_FORK_URL = 'https://api.github.com/repos/openstack/openstack-helm/forks'
-#KOLLA_FORK_URL = 'https://api.github.com/repos/openstack/kolla-kubernetes/forks'
-#FUELCCP_FORK_URL = 'https://api.github.com/repos/openstack/fuel-ccp/forks'
 ARMADA_FORK_URL = 'https://api.github.com/repos/openstack/openstack-helm/forks'
 DECKHAND_FORK_URL = 'https://api.github.com/repos/att-comdev/deckhand/forks'
 DRYDOCK_FORK_URL = 'https://api.github.com/repos/att-comdev/drydock/forks'
@@ -214,32 +209,27 @@ def main():
                     "srwilkers":"AT&T"}
 
     # Send all contributor information to Keen
-    helm_contrib_response = requests.get(HELM_CONTRIBUTORS_URL)
-    #kolla_contrib_response = requests.get(KOLLA_CONTRIBUTORS_URL)
-    #fuelccp_contrib_response = requests.get(FUELCCP_CONTRIBUTORS_URL)
-    armada_contrib_response = requests.get(ARMADA_CONTRIBUTORS_URL)
-    deckhand_contrib_response = requests.get(DECKHAND_CONTRIBUTORS_URL)
-    drydock_contrib_response = requests.get(DRYDOCK_CONTRIBUTORS_URL)
-    shipyard_contrib_response = requests.get(SHIPYARD_CONTRIBUTORS_URL)
-    promenade_contrib_response = requests.get(PROMENADE_CONTRIBUTORS_URL)
+    # helm_contrib_response = requests.get(HELM_CONTRIBUTORS_URL)
+    # armada_contrib_response = requests.get(ARMADA_CONTRIBUTORS_URL)
+    # deckhand_contrib_response = requests.get(DECKHAND_CONTRIBUTORS_URL)
+    # drydock_contrib_response = requests.get(DRYDOCK_CONTRIBUTORS_URL)
+    # shipyard_contrib_response = requests.get(SHIPYARD_CONTRIBUTORS_URL)
+    # promenade_contrib_response = requests.get(PROMENADE_CONTRIBUTORS_URL)
 
-    headers = {'Accept': 'application/vnd.github.v3.star+json'}
-    helm_stargaze_response = requests.get(HELM_STARGAZER_URL, headers=headers)
-    #kolla_stargaze_response = requests.get(KOLLA_STARGAZER_URL, headers=headers)
-    #fuelccp_stargaze_response = requests.get(FUELCCP_STARGAZER_URL, headers=headers)
-    armada_stargaze_response = requests.get(ARMADA_STARGAZER_URL, headers=headers)
-    deckhand_stargaze_response = requests.get(DECKHAND_STARGAZER_URL, headers=headers)
-    drydock_stargaze_response = requests.get(DRYDOCK_STARGAZER_URL, headers=headers)
-    shipyard_stargaze_response = requests.get(SHIPYARD_STARGAZER_URL, headers=headers)
-    promenade_stargaze_response = requests.get(PROMENADE_STARGAZER_URL, headers=headers)
-
-    helm_fork_response = requests.get(HELM_FORK_URL).json()
-    #kolla_fork_response = requests.get(KOLLA_FORK_URL).json()
-    armada_fork_response = requests.get(ARMADA_FORK_URL).json()
-    deckhand_fork_response = requests.get(DECKHAND_FORK_URL).json()
-    drydock_fork_response = requests.get(DRYDOCK_FORK_URL).json()
-    shipyard_fork_response = requests.get(SHIPYARD_FORK_URL).json()
-    promenade_fork_response = requests.get(PROMENADE_FORK_URL).json()
+    # headers = {'Accept': 'application/vnd.github.v3.star+json'}
+    # helm_stargaze_response = requests.get(HELM_STARGAZER_URL, headers=headers)
+    # armada_stargaze_response = requests.get(ARMADA_STARGAZER_URL, headers=headers)
+    # deckhand_stargaze_response = requests.get(DECKHAND_STARGAZER_URL, headers=headers)
+    # drydock_stargaze_response = requests.get(DRYDOCK_STARGAZER_URL, headers=headers)
+    # shipyard_stargaze_response = requests.get(SHIPYARD_STARGAZER_URL, headers=headers)
+    # promenade_stargaze_response = requests.get(PROMENADE_STARGAZER_URL, headers=headers)
+    #
+    # helm_fork_response = requests.get(HELM_FORK_URL).json()
+    # armada_fork_response = requests.get(ARMADA_FORK_URL).json()
+    # deckhand_fork_response = requests.get(DECKHAND_FORK_URL).json()
+    # drydock_fork_response = requests.get(DRYDOCK_FORK_URL).json()
+    # shipyard_fork_response = requests.get(SHIPYARD_FORK_URL).json()
+    # promenade_fork_response = requests.get(PROMENADE_FORK_URL).json()
 
     #helm_commit_response = requests.get(HELM_COMMITS_URL)
     #print json.dumps(helm_commit_response)
@@ -259,14 +249,12 @@ def main():
     #commit_affiliations("Shipyard_Commits", shipyard_commit_response, contributors)
     #commit_affiliations("Promenade_Commits", promenade_commit_response, contributors)
 
-    fork_affiliations("OpenStack_Helm_Forks", helm_fork_response, contributors)
-    #fork_affiliations("Kolla_Kubernetes_Forks", kolla_fork_response, contributors)
-    #fork_affiliations("Fuel_CCP_Forks", fuelccp_fork_response, contributors)
-    fork_affiliations("Armada_Forks", armada_fork_response, contributors)
-    fork_affiliations("Deckhand_Forks", deckhand_fork_response, contributors)
-    fork_affiliations("Drydock_Forks", drydock_fork_response, contributors)
-    fork_affiliations("Shipyard_Forks", shipyard_fork_response, contributors)
-    fork_affiliations("Promenade_Forks", promenade_fork_response, contributors)
+    # fork_affiliations("OpenStack_Helm_Forks", helm_fork_response, contributors)
+    # fork_affiliations("Armada_Forks", armada_fork_response, contributors)
+    # fork_affiliations("Deckhand_Forks", deckhand_fork_response, contributors)
+    # fork_affiliations("Drydock_Forks", drydock_fork_response, contributors)
+    # fork_affiliations("Shipyard_Forks", shipyard_fork_response, contributors)
+    # fork_affiliations("Promenade_Forks", promenade_fork_response, contributors)
     #for helm_commit in helm_commit_response.json():
     #    keen.add_event("OpenStack_Helm_Commits", helm_commit)
 
@@ -320,21 +308,19 @@ def main():
     #            "payload": fuelccp_response
     #        })
 
-    starred_data("OpenStack-Helm_Stargazers", helm_stargaze_response)
-    starred_data("Armada_Stargazers", armada_stargaze_response)
-    starred_data("Drydock_Stargazers", drydock_stargaze_response)
-    starred_data("Deckhand_Stargazers", deckhand_stargaze_response)
-    starred_data("Shipyard_Stargazers", shipyard_stargaze_response)
-    starred_data("Promenade_Stargazers", promenade_stargaze_response)
+    # starred_data("OpenStack-Helm_Stargazers", helm_stargaze_response)
+    # starred_data("Armada_Stargazers", armada_stargaze_response)
+    # starred_data("Drydock_Stargazers", drydock_stargaze_response)
+    # starred_data("Deckhand_Stargazers", deckhand_stargaze_response)
+    # starred_data("Shipyard_Stargazers", shipyard_stargaze_response)
+    # starred_data("Promenade_Stargazers", promenade_stargaze_response)
 
-    additions_over_time_event("OpenStack-Helm_Additions", helm_contrib_response)
-    #additions_over_time_event("FuelCCP_Additions", fuelccp_contrib_response)
-    #additions_over_time_event("Kolla_Kubernetes_Additions", kolla_contrib_response)
-    additions_over_time_event("Armada_Additions", armada_contrib_response)
-    additions_over_time_event("Drydock_Additions", drydock_contrib_response)
-    additions_over_time_event("Deckhand_Additions", deckhand_contrib_response)
-    additions_over_time_event("Promenade_Additions", promenade_contrib_response)
-    additions_over_time_event("Shipyard_Additions", shipyard_contrib_response)
+    # additions_over_time_event("OpenStack-Helm_Additions", helm_contrib_response)
+    # additions_over_time_event("Armada_Additions", armada_contrib_response)
+    # additions_over_time_event("Drydock_Additions", drydock_contrib_response)
+    # additions_over_time_event("Deckhand_Additions", deckhand_contrib_response)
+    # additions_over_time_event("Promenade_Additions", promenade_contrib_response)
+    # additions_over_time_event("Shipyard_Additions", shipyard_contrib_response)
 
     stackalytics_corporate_contributors("OSH_commits", 'openstack-others', 'openstack-helm', 'commits')
     stackalytics_corporate_contributors("OSH_marks", 'openstack-others', 'openstack-helm', 'marks')
