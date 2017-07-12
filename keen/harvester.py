@@ -167,7 +167,7 @@ def stackalytics_engineers(event_name, p_type, mod, met):
 def starred_data(event_name, response):
     for r in response.json():
         starred = r['starred_at']
-        keen.add_event(event,
+        keen.add_event(event_name,
         {
            "keen": {
            "timestamp": starred
@@ -227,7 +227,7 @@ def main():
     helm_stargaze_response = requests.get(HELM_STARGAZER_URL, headers=headers)
     #kolla_stargaze_response = requests.get(KOLLA_STARGAZER_URL, headers=headers)
     #fuelccp_stargaze_response = requests.get(FUELCCP_STARGAZER_URL, headers=headers)
-    armada_stargaze_response = requests.get(ARMADA_STARGAZER_URL, headers=headers))
+    armada_stargaze_response = requests.get(ARMADA_STARGAZER_URL, headers=headers)
     deckhand_stargaze_response = requests.get(DECKHAND_STARGAZER_URL, headers=headers)
     drydock_stargaze_response = requests.get(DRYDOCK_STARGAZER_URL, headers=headers)
     shipyard_stargaze_response = requests.get(SHIPYARD_STARGAZER_URL, headers=headers)
@@ -235,29 +235,29 @@ def main():
 
     helm_fork_response = requests.get(HELM_FORK_URL).json()
     #kolla_fork_response = requests.get(KOLLA_FORK_URL).json()
-    armada_fork_response = requests.get(ARMADA_CONTRIBUTORS_URL)
-    deckhand_fork_response = requests.get(DECKHAND_CONTRIBUTORS_URL)
-    drydock_fork_response = requests.get(DRYDOCK_CONTRIBUTORS_URL)
-    shipyard_fork_response = requests.get(SHIPYARD_CONTRIBUTORS_URL)
-    promenade_fork_response = requests.get(PROMENADE_CONTRIBUTORS_URL)
+    armada_fork_response = requests.get(ARMADA_FORK_URL).json()
+    deckhand_fork_response = requests.get(DECKHAND_FORK_URL).json()
+    drydock_fork_response = requests.get(DRYDOCK_FORK_URL).json()
+    shipyard_fork_response = requests.get(SHIPYARD_FORK_URL).json()
+    promenade_fork_response = requests.get(PROMENADE_FORK_URL).json()
 
     #helm_commit_response = requests.get(HELM_COMMITS_URL)
     #print json.dumps(helm_commit_response)
     #kolla_commit_response = requests.get(KOLLA_COMMITS_URL).json
     #armada_commit_response = requests.get(ARMADA_COMMITS_URL)
     #deckhand_commit_response = requests.get(DECKHAND_COMMITS_URL)
-    drydock_commit_response = requests.get(DRYDOCK_COMMITS_URL)
-    shipyard_commit_response = requests.get(SHIPYARD_COMMITS_URL)
-    promenade_commit_response = requests.get(PROMENADE_COMMITS_URL)
+    #drydock_commit_response = requests.get(DRYDOCK_COMMITS_URL)
+    #shipyard_commit_response = requests.get(SHIPYARD_COMMITS_URL)
+    #promenade_commit_response = requests.get(PROMENADE_COMMITS_URL)
 
-    commit_affiliations("OpenStack_Helm_Commits", helm_commit_response, contributors)
+    #commit_affiliations("OpenStack_Helm_Commits", helm_commit_response, contributors)
     #commit_affiliations("Kolla_Kubernetes_Commits", kolla_commit_response, contributors)
     #commit_affiliations("Fuel_CCP_Commits", fuelccp_commit_response, contributors)
-    commit_affiliations("Armada_Commits", armada_commit_response, contributors)
-    commit_affiliations("Deckhand_Commits", deckhand_commit_response, contributors)
-    commit_affiliations("Drydock_Commits", drydock_commit_response, contributors)
-    commit_affiliations("Shipyard_Commits", shipyard_commit_response, contributors)
-    commit_affiliations("Promenade_Commits", promenade_commit_response, contributors)
+    #commit_affiliations("Armada_Commits", armada_commit_response, contributors)
+    #commit_affiliations("Deckhand_Commits", deckhand_commit_response, contributors)
+    #commit_affiliations("Drydock_Commits", drydock_commit_response, contributors)
+    #commit_affiliations("Shipyard_Commits", shipyard_commit_response, contributors)
+    #commit_affiliations("Promenade_Commits", promenade_commit_response, contributors)
 
     fork_affiliations("OpenStack_Helm_Forks", helm_fork_response, contributors)
     #fork_affiliations("Kolla_Kubernetes_Forks", kolla_fork_response, contributors)
